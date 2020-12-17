@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // Van egy előre megírt fibonacci generátor függvényed:
+
+        // function *fibonacci() {
+        //     let a = 1;
+        //     let b = 1;
+        //     while( true ) {
+        //         [a, b] = [b, a+b];
+        //         yield b;
+        //     }
+        // }
+
+        // A feladatod, hogy írj egy olyan generátor függvényt, ami 
+        // a fibonacci generátor által visszaadott értékekből visszaadja a kapott érték négyzetét!
+
+        function* fibonacci() {
+            let a = 1;
+            let b = 1;
+            while (true) {
+                [a, b] = [b, a + b];
+                yield b;
+            }
+        }
+        
+        // const fib=fibonacci();
+        // console.log(fib.next().value);
+        // console.log(fib.next().value);
+        // console.log(fib.next().value);
+        // console.log(fib.next().value);
+
+
+        function* square() {
+            const fib = fibonacci();
+            while (true) {
+                yield fib.next().value**2;
+            }
+        }
+
+        const fibSquare = square();
+        console.log(fibSquare.next().value);
+        console.log(fibSquare.next().value);
+        console.log(fibSquare.next().value);
+        console.log(fibSquare.next().value);
+
+
+    </script>
+</body>
+
+</html>

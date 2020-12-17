@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // Írj egy generátor függvényt, ami a 2 hatványait adja vissza!
+
+        const number = 2;
+
+        let exponent = 0;
+        function* exponential(num) {
+            while (true) {
+                exponent += 1;
+                yield num ** (exponent-1);
+            }
+            return exponent;
+        }
+
+        const power = exponential(number);
+        console.log(`A(z) ${number}  ${exponent}. hatványa: `, power.next().value);
+        console.log(`A(z) ${number}  ${exponent}. hatványa: `, power.next().value);
+        console.log(`A(z) ${number}  ${exponent}. hatványa: `, power.next().value);
+        console.log(`A(z) ${number}  ${exponent}. hatványa: `, power.next().value);
+
+
+
+    </script>
+</body>
+
+</html>
